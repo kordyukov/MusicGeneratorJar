@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MusicGenerator">
+    <output-path>$PROJECT_DIR$/out/artifacts/MusicGenerator.jar</output-path>
+    <root id="archive" name="MusicGeneratorWebNew.jar">
+      <element id="module-output" name="main" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/jar_files/lombok-1.18.24.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/Bass.wav" />
+      <element id="file-copy" path="$PROJECT_DIR$/Bass1.wav" />
+      <element id="file-copy" path="$PROJECT_DIR$/clap.wav" />
+      <element id="file-copy" path="$PROJECT_DIR$/forte.wav" />
+      <element id="file-copy" path="$PROJECT_DIR$/Hat.wav" />
+      <element id="file-copy" path="$PROJECT_DIR$/hats.wav" />
+      <element id="file-copy" path="$PROJECT_DIR$/Kick.wav" />
+      <element id="file-copy" path="$PROJECT_DIR$/lead.wav" />
+      <element id="file-copy" path="$PROJECT_DIR$/MusicGenerator.wav" />
+      <element id="file-copy" path="$PROJECT_DIR$/pad.wav" />
+      <element id="file-copy" path="$PROJECT_DIR$/Snare.wav" />
+      <element id="file-copy" path="$PROJECT_DIR$/Tom.wav" />
+    </root>
+  </artifact>
+</component>
