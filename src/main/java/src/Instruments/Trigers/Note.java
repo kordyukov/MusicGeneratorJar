@@ -1,4 +1,4 @@
-package com.kordyukov.musicgenerator.Instruments.Trigers;
+package src.Instruments.Trigers;
 
 import lombok.Data;
 

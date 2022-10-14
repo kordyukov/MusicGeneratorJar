@@ -1,4 +1,4 @@
-package com.kordyukov.musicgenerator;
+package src;
 
 public interface Musician {
     public  int tempoTrigerBass();

@@ -1,6 +1,6 @@
-package com.kordyukov.musicgenerator.Instruments;
+package src.Instruments;
 
-import com.kordyukov.musicgenerator.MusicGeneratorConst;
+import src.MusicGeneratorConst;
 import lombok.Data;
 
 import javax.sound.midi.MidiChannel;

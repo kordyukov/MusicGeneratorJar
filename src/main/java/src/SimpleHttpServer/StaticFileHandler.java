@@ -1,4 +1,4 @@
-package com.kordyukov.musicgenerator.SimpleHttpServer;
+package src.SimpleHttpServer;
 
 import java.io.File;
 import java.io.IOException;

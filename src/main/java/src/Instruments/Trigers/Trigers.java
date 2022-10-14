@@ -1,13 +1,13 @@
-package com.kordyukov.musicgenerator.Instruments.Trigers;
+package src.Instruments.Trigers;
 
-import com.kordyukov.musicgenerator.Musician;
+import src.Musician;
 import lombok.Data;
 import lombok.SneakyThrows;
 
 
 import java.util.stream.IntStream;
 
-import static com.kordyukov.musicgenerator.Instruments.Trigers.Note.notes;
+import static src.Instruments.Trigers.Note.notes;
 
 @Data
 public class Trigers implements Musician {
@@ -57,7 +57,7 @@ public class Trigers implements Musician {
 
         check = p1==p2;
 
-            tempoKick =  tempKick[(0 + (int) (Math.random() * 1))];
+            tempoKick =  tempKick[(0 + (int) (Math.random() * 3))];
 
         return tempoKick;
     }

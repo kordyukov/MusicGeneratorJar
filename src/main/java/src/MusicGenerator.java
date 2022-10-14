@@ -1,17 +1,14 @@
-package com.kordyukov.musicgenerator.Controller;
+package src;
 
-import com.kordyukov.musicgenerator.FortePiano;
-import com.kordyukov.musicgenerator.Instruments.Bass;
-import com.kordyukov.musicgenerator.Instruments.Forte;
-import com.kordyukov.musicgenerator.Instruments.Hat;
-import com.kordyukov.musicgenerator.Instruments.Kick;
-import com.kordyukov.musicgenerator.Instruments.Piano;
-import com.kordyukov.musicgenerator.Instruments.Snare;
-import com.kordyukov.musicgenerator.Instruments.Trigers.Trigers;
-import com.kordyukov.musicgenerator.MusicGeneratorConst;
-import com.kordyukov.musicgenerator.Musician;
-import com.kordyukov.musicgenerator.SimpleHttpServer.SimpleHttpServer;
 import lombok.SneakyThrows;
+import src.Instruments.Bass;
+import src.Instruments.Forte;
+import src.Instruments.Hat;
+import src.Instruments.Kick;
+import src.Instruments.Piano;
+import src.Instruments.Snare;
+import src.Instruments.Trigers.Trigers;
+import src.SimpleHttpServer.SimpleHttpServer;
 
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioFormat;
@@ -27,7 +24,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class MusicGenerator {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Bass bass = new Bass();
         Kick kick = new Kick();
         Piano piano = new Piano();
@@ -39,15 +36,15 @@ public class MusicGenerator {
         final int[] temp = {0};
         final boolean[] leadPlay = {false};
 
-        Thread tomTh = new Thread(){
+        Thread tomTh = new Thread() {
             @SneakyThrows
             @Override
             public void run() {
                 File file;
                 file = new File("Tom.wav");
                 int temp;
-                while (true){
-                    temp = musician.tempoTrigerBass() *4;
+                while (true) {
+                    temp = musician.tempoTrigerBass() * 4;
                     bass.play(file, temp, musician.noteTrigerSpeedBass());
                     Thread.sleep(temp);
                 }
@@ -91,7 +88,7 @@ public class MusicGenerator {
                 int temp = 0;
                 while (true) {
                     temp = musician.tempoTrigerForte();
-                    forte.play(file, temp,  musician.noteTrigerSpeedForte());
+                    forte.play(file, temp, musician.noteTrigerSpeedForte());
                     forte.play(file, temp, musician.noteTrigerSpeedForte());
 
                     Thread.sleep(temp);
@@ -111,7 +108,7 @@ public class MusicGenerator {
                 while (true) {
 
                     temp[0] = musician.tempoTrigerBass();
-                    piano.play(file, temp[0], leadPlay[0] ? musician.noteTrigerSpeedBass() : musician.noteTrigerSpeedBass()*2);
+                    piano.play(file, temp[0], leadPlay[0] ? musician.noteTrigerSpeedBass() : musician.noteTrigerSpeedBass() * 2);
                     //piano.play(file, temp, musician.noteTrigerSpeedBass());
                     Thread.sleep(temp[0]);
                     leadPlay[0] = true;
@@ -122,7 +119,7 @@ public class MusicGenerator {
         Thread kickTh = new Thread() {
             @Override
             public void run() {
-                File file,file1,file2;
+                File file, file1, file2;
                 file1 = new File("Bass.wav");
 
                 file = new File("Kick.wav");
@@ -144,7 +141,7 @@ public class MusicGenerator {
                         }
 
                         kickPlay = false;
-                    }else {
+                    } else {
                         temp = musician.tempoTrigerBass();
                         note = musician.noteTrigerSpeedBass();
                         bass.play(file1, temp, note);
@@ -180,7 +177,7 @@ public class MusicGenerator {
 
         };
 
-         Thread clapTh = new Thread() {
+        Thread clapTh = new Thread() {
             @SneakyThrows
             @Override
             public void run() {
@@ -215,7 +212,7 @@ public class MusicGenerator {
 
         };
 
-        Thread Lead = new Thread(){
+        Thread Lead = new Thread() {
             @SneakyThrows
             @Override
             public void run() {
@@ -232,8 +229,7 @@ public class MusicGenerator {
         };
 
 
-
-         Thread Hats = new Thread() {
+        Thread Hats = new Thread() {
 
             @SneakyThrows
             @Override
@@ -267,8 +263,8 @@ public class MusicGenerator {
                 TargetDataLine mike;
                 boolean isBaseDirIdea;
 
-                    file = new File(MusicGeneratorConst.baseDirTomcat);
-                    if (!file.exists()) file.createNewFile();
+                file = new File(MusicGeneratorConst.baseDirTomcat);
+                if (!file.exists()) file.createNewFile();
 
                 // линию соединения
                 DataLine.Info info = new DataLine.Info(TargetDataLine.class, format);
@@ -308,48 +304,51 @@ public class MusicGenerator {
 
         };
 
-    Thread pianoP = new Thread(){
-        @SneakyThrows
-        @Override
-        public void run() {
-            while (true){
-                fortePiano.PlayPiano(1300);
-                Thread.sleep(1300);
+        Thread pianoP = new Thread() {
+            @SneakyThrows
+            @Override
+            public void run() {
+                while (true) {
+                    fortePiano.PlayPiano(1300);
+                    Thread.sleep(1300);
+                }
             }
-        }
-    };
+        };
 
         ExecutorService pool;
         pool = Executors.newFixedThreadPool(50);
-            //pool.submit(socketRec);
-            //pool.submit(serverStart);
-            //bassTh.start();
-            kickTh.start();
-            pool.submit(pianoTh);
-//            pool.submit(pianoTh);
-//            pool.submit(pianoTh);
-//            pool.submit(pianoTh);
-            pool.submit(hatTh);
-            pool.submit(Hats);
-            pool.submit(Hats);
-           pool.submit(forteTh);
-//            pool.submit(forteTh);
-            pool.submit(clapTh);
-            pool.submit(Lead);
-            pool.submit(Lead);
-            pool.submit(Lead);
-            pool.submit(Lead);
-            pool.submit(Lead);
-            pool.submit(Lead);
-            pool.submit(Lead);
-            pool.submit(Lead);
-            pool.submit(pianoP);
-            pool.submit(pianoP);
-            pool.submit(pianoP);
-            pool.submit(pianoP);
-            pool.submit(pianoP);
-            pool.submit(tomTh);
-            pool.submit(tomTh);
+        kickTh.start();
+        pool.submit(pianoTh);
+        pool.submit(hatTh);
+        pool.submit(Hats);
+        pool.submit(Hats);
+        pool.submit(Hats);
+        pool.submit(Hats);
+//        pool.submit(forteTh);
+//        pool.submit(forteTh);
+        pool.submit(clapTh);
+        pool.submit(Lead);
+        pool.submit(pianoP);
+        Thread.sleep(1000);
+        pool.submit(pianoP);
+        Thread.sleep(1000);
+        pool.submit(pianoP);
+        Thread.sleep(1000);
+        pool.submit(pianoP);
+        Thread.sleep(1000);
+        pool.submit(pianoP);
+        Thread.sleep(1000);
+        pool.submit(pianoP);
+        Thread.sleep(1000);
+        pool.submit(pianoP);
+        Thread.sleep(1000);
+        pool.submit(pianoP);
+        Thread.sleep(1000);
+        pool.submit(pianoP);
+        Thread.sleep(1000);
+        pool.submit(pianoP);
+        pool.submit(tomTh);
+        pool.submit(tomTh);
     }
 
 }

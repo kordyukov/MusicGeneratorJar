@@ -1,6 +1,6 @@
-package com.kordyukov.musicgenerator.Instruments;
+package src.Instruments;
 
-import com.kordyukov.musicgenerator.MusicGeneratorConst;
+import src.MusicGeneratorConst;
 import lombok.Data;
 
 import javax.sound.midi.MidiChannel;
@@ -10,37 +10,32 @@ import javax.sound.sampled.*;
 import java.io.File;
 
 @Data
-public class Kick {
-
-    private int note = 36;
+public class Piano {
+    private int note;
     private int temp;
     private int volume;
 
-    public void playKick(int temp, int volume) {
+    public void playPiano(int note, int temp, int volume) {
         try {
             Synthesizer synth = MidiSystem.getSynthesizer();
             synth.open();
             MidiChannel[] channels = synth.getChannels();
-            channels[MusicGeneratorConst.CHANNEL_KICK].programChange(MusicGeneratorConst.KICK);
-            channels[MusicGeneratorConst.CHANNEL_KICK].noteOn(note, volume);
+            channels[0].programChange(MusicGeneratorConst.PIANO);
+            channels[MusicGeneratorConst.CHANNEL_PIANO].noteOn(note, volume);
             Thread.sleep(temp); // in milliseconds
-            channels[MusicGeneratorConst.CHANNEL_KICK].noteOff(note);
+            channels[MusicGeneratorConst.CHANNEL_PIANO].noteOff(note);
             synth.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void play(File file, int tempo) {
+    public void play(File file, int tempo, float note) {
 
         try {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
             AudioFormat formatIn = audioInputStream.getFormat();
-            AudioFormat format = new AudioFormat((float) (formatIn.getSampleRate()*1.0), formatIn.getSampleSizeInBits(), formatIn.getChannels(), true, formatIn.isBigEndian());
-            //a = a + 0.01;
-
-//            System.out.println(formatIn.toString());
-//            System.out.println(format.toString());
+            AudioFormat format = new AudioFormat(formatIn.getSampleRate()*note, formatIn.getSampleSizeInBits(), formatIn.getChannels(), true, formatIn.isBigEndian());
             byte[] data = new byte[1024];
             DataLine.Info dinfo = new DataLine.Info(SourceDataLine.class, format);
             SourceDataLine line = (SourceDataLine)AudioSystem.getLine(dinfo);
@@ -59,7 +54,4 @@ public class Kick {
         }
         catch(Exception ex) { ex.printStackTrace(); }
     }
-
 }
-
-

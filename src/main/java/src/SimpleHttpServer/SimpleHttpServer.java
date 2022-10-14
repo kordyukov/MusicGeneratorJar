@@ -1,4 +1,4 @@
-package com.kordyukov.musicgenerator.SimpleHttpServer;
+package src.SimpleHttpServer;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import com.kordyukov.musicgenerator.MusicGeneratorConst;
+import src.MusicGeneratorConst;
 import com.sun.net.httpserver.HttpServer;
 
 @SuppressWarnings("restriction")
@@ -31,7 +31,7 @@ public class SimpleHttpServer {
             isBaseDirIdea = !Files.exists(path);
 
                 server.createContext("/", new StaticFileHandler(MusicGeneratorConst.baseDirTomcat ));
-                System.out.println("SimpleHttpServer baseDirTomcat");
+                System.out.println("src.SimpleHttpServer baseDirTomcat");
 
             server.start();
             System.out.println("server.start()");

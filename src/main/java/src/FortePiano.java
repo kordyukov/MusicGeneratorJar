@@ -1,13 +1,44 @@
-package com.kordyukov.musicgenerator.Instruments;
+package src;//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
 
-import lombok.Data;
-
-
+import javax.sound.midi.MidiChannel;
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.Synthesizer;
 import javax.sound.sampled.*;
 import java.io.File;
 
-@Data
-public class Bass {
+public class FortePiano {
+    static int volume = 80;
+
+    public FortePiano() {
+    }
+
+    public void PlayPiano(int rytmi) {
+        PianoRythm pPiano = new PianoRythm();
+
+        try {
+            Synthesizer synth5 = MidiSystem.getSynthesizer();
+            synth5.open();
+            MidiChannel[] channels = synth5.getChannels();
+            channels[6].programChange(2);
+
+
+            PianoRythm.notei = pPiano.note[pPiano.a + (int) (Math.random() * (double) (pPiano.bn - pPiano.a + 1))];
+            channels[6].noteOn(PianoRythm.notei, volume);
+            Thread.sleep(rytmi);
+            channels[6].noteOff(PianoRythm.notei);
+
+
+            pPiano.randomPiano();
+
+        } catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+
     public void play(File file, int tempo, float note) {
 
         try {
@@ -45,5 +76,5 @@ public class Bass {
         }
 
     }
-
 }
+
