@@ -1,4 +1,4 @@
-package src.Instruments.Trigers;
+package src.instruments.Trigers;
 
 import src.Musician;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.SneakyThrows;
 
 import java.util.stream.IntStream;
 
-import static src.Instruments.Trigers.Note.notes;
+import static src.instruments.Trigers.Note.notes;
 
 @Data
 public class Trigers implements Musician {

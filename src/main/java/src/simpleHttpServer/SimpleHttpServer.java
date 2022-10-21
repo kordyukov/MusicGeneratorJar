@@ -1,4 +1,4 @@
-package src.SimpleHttpServer;
+package src.simpleHttpServer;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import src.MusicGeneratorConst;
+import src.constants.MusicGeneratorConst;
 import com.sun.net.httpserver.HttpServer;
 
 @SuppressWarnings("restriction")

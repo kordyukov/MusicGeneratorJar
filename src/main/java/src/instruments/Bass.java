@@ -1,4 +1,4 @@
-package src.Instruments;
+package src.instruments;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package src.SimpleHttpServer;
+package src.simpleHttpServer;
 
 import java.io.File;
 import java.io.IOException;

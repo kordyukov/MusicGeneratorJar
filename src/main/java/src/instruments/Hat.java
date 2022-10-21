@@ -1,6 +1,6 @@
-package src.Instruments;
+package src.instruments;
 
-import src.MusicGeneratorConst;
+import src.constants.MusicGeneratorConst;
 import lombok.Data;
 
 import javax.sound.midi.MidiChannel;
@@ -10,27 +10,25 @@ import javax.sound.sampled.*;
 import java.io.File;
 
 @Data
-public class Kick {
-
-    private int note = 36;
+public class Hat {
+    private int note = 42;
     private int temp;
     private int volume;
 
-    public void playKick(int temp, int volume) {
+    public void playHat(int temp, int volume) {
         try {
             Synthesizer synth = MidiSystem.getSynthesizer();
             synth.open();
             MidiChannel[] channels = synth.getChannels();
-            channels[MusicGeneratorConst.CHANNEL_KICK].programChange(MusicGeneratorConst.KICK);
-            channels[MusicGeneratorConst.CHANNEL_KICK].noteOn(note, volume);
+            channels[MusicGeneratorConst.CHANNEL_HAT].programChange(MusicGeneratorConst.HAT);
+            channels[MusicGeneratorConst.CHANNEL_HAT].noteOn(note, volume);
             Thread.sleep(temp); // in milliseconds
-            channels[MusicGeneratorConst.CHANNEL_KICK].noteOff(note);
+            channels[MusicGeneratorConst.CHANNEL_HAT].noteOff(note);
             synth.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
     public void play(File file, int tempo) {
 
         try {
@@ -59,7 +57,4 @@ public class Kick {
         }
         catch(Exception ex) { ex.printStackTrace(); }
     }
-
 }
-
-

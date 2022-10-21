@@ -1,4 +1,4 @@
-package src.Instruments.Trigers;
+package src.instruments.Trigers;
 
 import lombok.Data;
 

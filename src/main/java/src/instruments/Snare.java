@@ -1,6 +1,6 @@
-package src.Instruments;
+package src.instruments;
 
-import src.MusicGeneratorConst;
+import src.constants.MusicGeneratorConst;
 import lombok.Data;
 
 import javax.sound.midi.MidiChannel;
