@@ -1,6 +1,5 @@
 package threads;
 
-import lombok.SneakyThrows;
 import src.Musician;
 import src.instruments.Snare;
 import src.instruments.Trigers.Trigers;
@@ -8,7 +7,7 @@ import src.instruments.Trigers.Trigers;
 import java.io.File;
 
 public class ClapTh implements Runnable{
-    @SneakyThrows
+
     @Override
     public void run() {
         Musician musician = new Trigers();
@@ -19,7 +18,11 @@ public class ClapTh implements Runnable{
 
         while (true) {
             snare.play(file, musician.tempoTrigerSnare());
-            Thread.sleep(musician.tempoTrigerSnare());
+            try {
+                Thread.sleep(musician.tempoTrigerSnare());
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

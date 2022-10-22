@@ -1,15 +1,10 @@
 package src.instruments.Trigers;
 
 import src.Musician;
-import lombok.Data;
-import lombok.SneakyThrows;
-
 
 import java.util.stream.IntStream;
 
 import static src.instruments.Trigers.Note.notes;
-
-@Data
 public class Trigers implements Musician {
     private Note note;
     private int[] tempBass = IntStream.of(50, 200, 400).toArray();
@@ -152,7 +147,6 @@ public class Trigers implements Musician {
         return note;
     }
 
-    @SneakyThrows
     public float noteTrigerFortePiano()  {
         float note;
         note = noteSpeed[0 + (int) (Math.random() * 6)];

@@ -1,6 +1,5 @@
 package threads;
 
-import lombok.SneakyThrows;
 import src.FortePiano;
 import src.Musician;
 import src.instruments.Trigers.Trigers;
@@ -8,7 +7,7 @@ import src.instruments.Trigers.Trigers;
 import java.io.File;
 
 public class HatsTh implements Runnable{
-    @SneakyThrows
+
     @Override
     public void run() {
         File file;
@@ -22,7 +21,11 @@ public class HatsTh implements Runnable{
         while (true) {
             temp[0] = musician.tempoTrigerFortePiano() * 2;
             hats.play(file, temp[0], musician.noteTrigerFortePiano());
-            Thread.sleep(temp[0]);
+            try {
+                Thread.sleep(temp[0]);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

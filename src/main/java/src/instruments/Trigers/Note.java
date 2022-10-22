@@ -1,9 +1,5 @@
 package src.instruments.Trigers;
 
-import lombok.Data;
-
-
-@Data
 public class Note {
     public static final int[] c = { 12 , 24 , 36 , 48 , 60 , 72 , 84 , 96 , 108 };
     public static final int[] d = { 14 , 26 , 38 , 50 , 62 , 74 , 86 , 98 , 110 };

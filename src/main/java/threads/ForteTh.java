@@ -1,6 +1,5 @@
 package threads;
 
-import lombok.SneakyThrows;
 import src.Musician;
 import src.instruments.Forte;
 import src.instruments.Trigers.Trigers;
@@ -8,7 +7,7 @@ import src.instruments.Trigers.Trigers;
 import java.io.File;
 
 public class ForteTh implements Runnable{
-    @SneakyThrows
+
     @Override
     public void run() {
         Forte forte = new Forte();
@@ -22,7 +21,11 @@ public class ForteTh implements Runnable{
             forte.play(file, temp, musician.noteTrigerSpeedForte());
             forte.play(file, temp, musician.noteTrigerSpeedForte());
 
-            Thread.sleep(temp);
+            try {
+                Thread.sleep(temp);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

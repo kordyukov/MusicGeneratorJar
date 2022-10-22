@@ -1,6 +1,5 @@
 package threads;
 
-import lombok.SneakyThrows;
 import src.Musician;
 import src.instruments.Piano;
 import src.instruments.Trigers.Trigers;
@@ -8,7 +7,7 @@ import src.instruments.Trigers.Trigers;
 import java.io.File;
 
 public class PianoTh implements Runnable{
-    @SneakyThrows
+
     @Override
     public void run() {
         File file;
@@ -23,7 +22,11 @@ public class PianoTh implements Runnable{
             temp[0] = musician.tempoTrigerBass();
             piano.play(file, temp[0], leadPlay[0] ? musician.noteTrigerSpeedBass() : musician.noteTrigerSpeedBass() * 2);
 
-            Thread.sleep(temp[0]);
+            try {
+                Thread.sleep(temp[0]);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
 
             leadPlay[0] = true;
         }

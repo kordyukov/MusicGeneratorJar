@@ -1,15 +1,12 @@
 package src.instruments;
 
 import src.constants.MusicGeneratorConst;
-import lombok.Data;
 
 import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Synthesizer;
 import javax.sound.sampled.*;
 import java.io.File;
-
-@Data
 public class Kick {
 
     private int note = 36;

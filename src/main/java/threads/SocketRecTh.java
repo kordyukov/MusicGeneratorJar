@@ -1,6 +1,5 @@
 package threads;
 
-import lombok.SneakyThrows;
 import src.constants.MusicGeneratorConst;
 
 import javax.sound.sampled.AudioFileFormat;
@@ -15,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class SocketRecTh implements Runnable{
-    @SneakyThrows
+
     @Override
     public void run() {
         // текущий звуковой файл
@@ -30,7 +29,13 @@ public class SocketRecTh implements Runnable{
         boolean isBaseDirIdea;
 
         file = new File(MusicGeneratorConst.baseDirTomcat);
-        if (!file.exists()) file.createNewFile();
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
         // линию соединения
         DataLine.Info info = new DataLine.Info(TargetDataLine.class, format);

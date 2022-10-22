@@ -1,12 +1,8 @@
 package src.instruments;
 
-import lombok.Data;
-
-
 import javax.sound.sampled.*;
 import java.io.File;
 
-@Data
 public class Bass {
     public void play(File file, int tempo, float note) {
 
