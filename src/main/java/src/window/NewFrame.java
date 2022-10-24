@@ -1,5 +1,6 @@
 package src.window;
 
+import src.FortePiano;
 import src.instruments.Bass;
 import src.instruments.Hat;
 import src.instruments.Kick;
@@ -83,7 +84,7 @@ public class NewFrame implements ActionListener {
         scrb1.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 JSlider source = (JSlider) e.getSource();
-                Piano.volume = source.getValue();
+                FortePiano.volume = source.getValue();
             }
         });
         scrb2.addChangeListener(new ChangeListener() {

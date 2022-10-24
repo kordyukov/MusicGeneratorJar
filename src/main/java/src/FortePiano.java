@@ -14,7 +14,7 @@ import javax.sound.sampled.SourceDataLine;
 import java.io.File;
 
 public class FortePiano {
-    static int volume = 80;
+    public static int volume = 80;
 
     public FortePiano() {
     }
