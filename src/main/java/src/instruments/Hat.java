@@ -33,19 +33,23 @@ public class Hat {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
             AudioFormat formatIn = audioInputStream.getFormat();
             AudioFormat format = new AudioFormat((float) (formatIn.getSampleRate()*1.0), formatIn.getSampleSizeInBits(), formatIn.getChannels(), true, formatIn.isBigEndian());
-            //a = a + 0.01;
 
-//            System.out.println(formatIn.toString());
-//            System.out.println(format.toString());
             byte[] data = new byte[1024];
             DataLine.Info dinfo = new DataLine.Info(SourceDataLine.class, format);
             SourceDataLine line = (SourceDataLine)AudioSystem.getLine(dinfo);
+
             if(line!=null) {
                 line.open(format);
                 line.start();
+
+                float vol = 100;
+
                 while(true) {
                     int k = audioInputStream.read(data, 0, data.length);
                     if(k<0) break;
+                    final var volumeControl = (FloatControl) line.getControl(FloatControl.Type.MASTER_GAIN);
+                    volumeControl.setValue(20.0f * (float) Math.log10( vol / 100.0 ));
+
                     line.write(data, 0, k);
                 }
                 Thread.sleep(tempo);
