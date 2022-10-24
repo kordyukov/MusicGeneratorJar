@@ -6,7 +6,7 @@ import src.instruments.Trigers.Trigers;
 
 import java.io.File;
 
-public class HatsTh implements Runnable{
+public class HatsTh implements Runnable {
 
     @Override
     public void run() {

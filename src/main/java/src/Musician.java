@@ -1,26 +1,27 @@
 package src;
 
 public interface Musician {
-    public  int tempoTrigerBass();
+    int tempoTrigerBass();
 
-    public int noteTrigerBass();
+    int noteTrigerBass();
 
-    public  float noteTrigerSpeedBass();
+    float noteTrigerSpeedBass();
 
-    public int tempoTrigerKick();
+    int tempoTrigerKick();
 
-    public  int noteTrigerPiano();
+    int noteTrigerPiano();
 
-    public  int tempoTrigerPiano();
+    int tempoTrigerPiano();
 
-    public  int tempoTrigerSnare();
+    int tempoTrigerSnare();
 
-    public  int tempoTrigerHat();
+    int tempoTrigerHat();
 
-    public  int tempoTrigerForte();
+    int tempoTrigerForte();
 
-    public  float noteTrigerSpeedForte();
+    float noteTrigerSpeedForte();
 
-    public  int tempoTrigerFortePiano();
-    public float noteTrigerFortePiano();
+    int tempoTrigerFortePiano();
+
+    float noteTrigerFortePiano();
 }

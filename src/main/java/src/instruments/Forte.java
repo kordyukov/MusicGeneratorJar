@@ -1,11 +1,16 @@
 package src.instruments;
 
 
-
-import javax.sound.sampled.*;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.FloatControl;
+import javax.sound.sampled.SourceDataLine;
 import java.io.File;
 
 public class Forte {
+    public static int volume = 70;
     public void play(File file, int tempo, float note) {
         float a = 1.0F;
         try {
@@ -24,6 +29,10 @@ public class Forte {
                 while (true) {
                     int k = audioInputStream.read(data, 0, data.length);
                     if (k < 0) break;
+
+                    final var volumeControl = (FloatControl) line.getControl(FloatControl.Type.MASTER_GAIN);
+                    volumeControl.setValue(20.0f * (float) Math.log10(volume / 100.0));
+
                     line.write(data, 0, k);
                 }
 

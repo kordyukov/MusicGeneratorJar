@@ -2,7 +2,7 @@ package src.threads;
 
 import src.FortePiano;
 
-public class PianoPTh implements Runnable{
+public class PianoPTh implements Runnable {
 
     @Override
     public void run() {

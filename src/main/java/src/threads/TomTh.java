@@ -6,7 +6,7 @@ import src.instruments.Trigers.Trigers;
 
 import java.io.File;
 
-public class TomTh implements Runnable{
+public class TomTh implements Runnable {
 
     @Override
     public void run() {

@@ -6,7 +6,7 @@ import src.instruments.Trigers.Trigers;
 
 import java.io.File;
 
-public class ForteTh implements Runnable{
+public class ForteTh implements Runnable {
 
     @Override
     public void run() {

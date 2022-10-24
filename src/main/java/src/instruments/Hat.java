@@ -5,13 +5,18 @@ import src.constants.MusicGeneratorConst;
 import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Synthesizer;
-import javax.sound.sampled.*;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.FloatControl;
+import javax.sound.sampled.SourceDataLine;
 import java.io.File;
 
 public class Hat {
     private int note = 42;
     private int temp;
-    private int volume;
+    public static int volume = 70;
 
     public void playHat(int temp, int volume) {
         try {
@@ -42,13 +47,12 @@ public class Hat {
                 line.open(format);
                 line.start();
 
-                float vol = 100;
-
                 while(true) {
                     int k = audioInputStream.read(data, 0, data.length);
                     if(k<0) break;
+
                     final var volumeControl = (FloatControl) line.getControl(FloatControl.Type.MASTER_GAIN);
-                    volumeControl.setValue(20.0f * (float) Math.log10( vol / 100.0 ));
+                    volumeControl.setValue(20.0f * (float) Math.log10(volume / 100.0));
 
                     line.write(data, 0, k);
                 }

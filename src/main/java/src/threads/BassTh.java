@@ -6,7 +6,7 @@ import src.instruments.Trigers.Trigers;
 
 import java.io.File;
 
-public class BassTh implements Runnable{
+public class BassTh implements Runnable {
 
     @Override
     public void run() {

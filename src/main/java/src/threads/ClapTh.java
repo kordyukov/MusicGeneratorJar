@@ -6,7 +6,7 @@ import src.instruments.Trigers.Trigers;
 
 import java.io.File;
 
-public class ClapTh implements Runnable{
+public class ClapTh implements Runnable {
 
     @Override
     public void run() {

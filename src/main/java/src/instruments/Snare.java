@@ -5,12 +5,17 @@ import src.constants.MusicGeneratorConst;
 import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Synthesizer;
-import javax.sound.sampled.*;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.FloatControl;
+import javax.sound.sampled.SourceDataLine;
 import java.io.File;
 public class Snare {
+    public static int volume = 70;
     private int note = 38;
     private int temp;
-    private int volume;
 
     public void playSnare(int temp, int volume) {
         try {
@@ -42,7 +47,11 @@ public class Snare {
                 line.start();
                 while(true) {
                     int k = audioInputStream.read(data, 0, data.length);
-                    if(k<0) break;
+                    if (k < 0) break;
+
+                    final var volumeControl = (FloatControl) line.getControl(FloatControl.Type.MASTER_GAIN);
+                    volumeControl.setValue(20.0f * (float) Math.log10(volume / 100.0));
+
                     line.write(data, 0, k);
                 }
                 Thread.sleep(tempo);

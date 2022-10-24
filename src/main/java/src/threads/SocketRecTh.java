@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import java.io.File;
 import java.io.IOException;
 
-public class SocketRecTh implements Runnable{
+public class SocketRecTh implements Runnable {
 
     @Override
     public void run() {

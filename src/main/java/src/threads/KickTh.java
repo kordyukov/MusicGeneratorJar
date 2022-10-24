@@ -9,6 +9,7 @@ import java.io.File;
 
 public class KickTh extends Thread {
     public static boolean kickPlay = false;
+
     @Override
     public void run() {
         Bass bass = new Bass();

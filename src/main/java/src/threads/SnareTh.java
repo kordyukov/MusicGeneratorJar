@@ -6,7 +6,7 @@ import src.instruments.Trigers.Trigers;
 
 import java.io.File;
 
-public class SnareTh implements Runnable{
+public class SnareTh implements Runnable {
 
     @Override
     public void run() {

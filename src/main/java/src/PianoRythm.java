@@ -4,6 +4,7 @@ package src;//
 //
 
 public class PianoRythm {
+    static int notei;
     int a = 0;
     int b = 5;
     int bn = 27;
@@ -12,20 +13,19 @@ public class PianoRythm {
     int rytmi;
     int udari;
     int[] note;
-    static int notei;
 
     public PianoRythm() {
-        this.rytmi = this.rythm[this.a + (int)(Math.random() * (double)(this.b - this.a + 1))];
+        this.rytmi = this.rythm[this.a + (int) (Math.random() * (double) (this.b - this.a + 1))];
         this.note = new int[]{60, 62, 64, 65, 67, 69, 71, 72, 74, 76, 77, 79, 81, 83, 84, 86, 88, 89, 91, 93, 95, 96, 98, 100, 101, 103, 105, 107};
     }
 
     public void randomPiano() {
-        notei = this.note[this.a + (int)(Math.random() * (double)(this.bn - this.a + 1))];
+        notei = this.note[this.a + (int) (Math.random() * (double) (this.bn - this.a + 1))];
         int noten = notei;
-        int notens = this.a + (int)(Math.random() * (double)(this.bn - this.a + 1));
-        this.rytmi = this.rythm[this.a + (int)(Math.random() * (double)(this.b - this.a + 1))];
-        this.rytmi = this.rythm[this.a + (int)(Math.random() * (double)(this.b - this.a + 1))];
-        this.udari = this.udar[0 + (int)(Math.random() * 21.0D)];
+        int notens = this.a + (int) (Math.random() * (double) (this.bn - this.a + 1));
+        this.rytmi = this.rythm[this.a + (int) (Math.random() * (double) (this.b - this.a + 1))];
+        this.rytmi = this.rythm[this.a + (int) (Math.random() * (double) (this.b - this.a + 1))];
+        this.udari = this.udar[0 + (int) (Math.random() * 21.0D)];
     }
 }
 

@@ -6,7 +6,7 @@ import src.instruments.Trigers.Trigers;
 
 import java.io.File;
 
-public class PianoTh implements Runnable{
+public class PianoTh implements Runnable {
 
     @Override
     public void run() {

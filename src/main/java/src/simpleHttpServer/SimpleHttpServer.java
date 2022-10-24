@@ -1,14 +1,14 @@
 package src.simpleHttpServer;
 
+import com.sun.net.httpserver.HttpServer;
+import src.constants.MusicGeneratorConst;
+
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
-import src.constants.MusicGeneratorConst;
-import com.sun.net.httpserver.HttpServer;
 
 @SuppressWarnings("restriction")
 public class SimpleHttpServer {
@@ -18,7 +18,7 @@ public class SimpleHttpServer {
 
     private HttpServer server;
 
-    public void start()  {
+    public void start() {
 
         try {
             InetAddress addr = InetAddress.getLocalHost();
@@ -30,13 +30,13 @@ public class SimpleHttpServer {
 
             isBaseDirIdea = !Files.exists(path);
 
-                server.createContext("/", new StaticFileHandler(MusicGeneratorConst.baseDirTomcat ));
-                System.out.println("src.SimpleHttpServer baseDirTomcat");
+            server.createContext("/", new StaticFileHandler(MusicGeneratorConst.baseDirTomcat));
+            System.out.println("src.SimpleHttpServer baseDirTomcat");
 
             server.start();
             System.out.println("server.start()");
 
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println(e);
         }
     }
