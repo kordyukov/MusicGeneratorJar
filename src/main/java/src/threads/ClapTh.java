@@ -1,26 +1,25 @@
-package threads;
+package src.threads;
 
 import src.Musician;
-import src.instruments.Bass;
+import src.instruments.Snare;
 import src.instruments.Trigers.Trigers;
 
 import java.io.File;
 
-public class TomTh implements Runnable{
+public class ClapTh implements Runnable{
 
     @Override
     public void run() {
         Musician musician = new Trigers();
-        Bass bass = new Bass();
+        Snare snare = new Snare();
+        File file;
 
-        File file = new File("Tom.wav");
+        file = new File("clap.wav");
 
-        int temp;
         while (true) {
-            temp = musician.tempoTrigerBass() * 4;
-            bass.play(file, temp, musician.noteTrigerSpeedBass());
+            snare.play(file, musician.tempoTrigerSnare());
             try {
-                Thread.sleep(temp);
+                Thread.sleep(musician.tempoTrigerSnare());
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

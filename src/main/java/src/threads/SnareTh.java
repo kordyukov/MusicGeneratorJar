@@ -1,25 +1,27 @@
-package threads;
+package src.threads;
 
 import src.Musician;
-import src.instruments.Hat;
+import src.instruments.Snare;
 import src.instruments.Trigers.Trigers;
 
 import java.io.File;
 
-public class HatTh implements Runnable{
+public class SnareTh implements Runnable{
 
     @Override
     public void run() {
-        Hat hat = new Hat();
         Musician musician = new Trigers();
+        Snare snare = new Snare();
         File file;
 
-        file = new File("Hat.wav");
+        file = new File("Snare.wav");
 
+        int temp = 0;
         while (true) {
-            hat.play(file, musician.tempoTrigerHat());
+            temp = musician.tempoTrigerSnare();
+            snare.play(file, temp);
             try {
-                Thread.sleep(musician.tempoTrigerHat());
+                Thread.sleep(temp);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

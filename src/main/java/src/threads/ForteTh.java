@@ -1,4 +1,4 @@
-package threads;
+package src.threads;
 
 import src.Musician;
 import src.instruments.Forte;

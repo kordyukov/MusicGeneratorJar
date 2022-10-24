@@ -1,4 +1,4 @@
-package threads;
+package src.threads;
 
 import src.Musician;
 import src.instruments.Bass;
@@ -21,7 +21,11 @@ public class BassTh implements Runnable{
         while (true) {
             temp = musician.tempoTrigerBass();
             note = musician.noteTrigerSpeedBass();
-            bass.play(file, temp, note);
+
+            if (!KickTh.kickPlay) {
+                bass.play(file, temp, note);
+            }
+
             try {
                 Thread.sleep(temp);
             } catch (InterruptedException e) {

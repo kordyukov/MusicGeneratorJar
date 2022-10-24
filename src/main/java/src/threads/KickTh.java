@@ -1,4 +1,4 @@
-package threads;
+package src.threads;
 
 import src.Musician;
 import src.instruments.Bass;
@@ -8,6 +8,7 @@ import src.instruments.Trigers.Trigers;
 import java.io.File;
 
 public class KickTh extends Thread {
+    public static boolean kickPlay = false;
     @Override
     public void run() {
         Bass bass = new Bass();
@@ -20,7 +21,6 @@ public class KickTh extends Thread {
         file = new File("Kick.wav");
         int temp;
         float note;
-        boolean kickPlay = false;
 
         while (true) {
             if (kickPlay) {

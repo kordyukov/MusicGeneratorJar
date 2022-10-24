@@ -1,4 +1,4 @@
-package threads;
+package src.threads;
 
 import src.constants.MusicGeneratorConst;
 
