@@ -6,6 +6,7 @@ import src.instruments.Hat;
 import src.instruments.Kick;
 import src.instruments.Piano;
 import src.instruments.Snare;
+import src.threads.PianoTh;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

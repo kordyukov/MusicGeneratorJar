@@ -13,8 +13,6 @@ import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.SourceDataLine;
 import java.io.File;
 public class Piano {
-    private int note;
-    private int temp;
     public static int volume = 70;
 
     public void playPiano(int note, int temp, int volume) {

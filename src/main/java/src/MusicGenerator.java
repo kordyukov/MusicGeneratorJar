@@ -8,6 +8,7 @@ import src.threads.HatsTh;
 import src.threads.KickTh;
 import src.threads.LeadTh;
 import src.threads.PianoPTh;
+import src.threads.PianoTh;
 import src.threads.SnareTh;
 import src.threads.TomTh;
 import src.window.NewFrame;
@@ -19,7 +20,7 @@ public class MusicGenerator {
     public static void main(String[] args) throws InterruptedException {
         new NewFrame("Генератор музыки 2022, версия 1.0 beta by Kordyukov Denis(Russian, Kherson)", 10, 10);
         ExecutorService pool;
-        pool = Executors.newFixedThreadPool(50);
+        pool = Executors.newFixedThreadPool(100);
         new KickTh().start();
         pool.submit(new BassTh());
         pool.submit(new SnareTh());
@@ -53,9 +54,12 @@ public class MusicGenerator {
         pool.submit(new PianoPTh());
         Thread.sleep(100 + (int) (Math.random() * 5000));
 
+        pool.submit(new PianoTh());
+
         pool.submit(new PianoPTh());
         pool.submit(new TomTh());
         pool.submit(new TomTh());
+
     }
 
 }
