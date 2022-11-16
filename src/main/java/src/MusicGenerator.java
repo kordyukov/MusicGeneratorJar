@@ -1,16 +1,6 @@
 package src;
 
-import src.threads.BassTh;
-import src.threads.ClapTh;
-import src.threads.ForteTh;
-import src.threads.HatTh;
-import src.threads.HatsTh;
-import src.threads.KickTh;
-import src.threads.LeadTh;
-import src.threads.PianoPTh;
-import src.threads.PianoTh;
-import src.threads.SnareTh;
-import src.threads.TomTh;
+import src.threads.*;
 import src.window.NewFrame;
 
 import java.util.concurrent.ExecutorService;

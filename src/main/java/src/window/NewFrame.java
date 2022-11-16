@@ -1,20 +1,11 @@
 package src.window;
 
 import src.FortePiano;
-import src.instruments.Bass;
-import src.instruments.Hat;
-import src.instruments.Kick;
-import src.instruments.Piano;
-import src.instruments.Snare;
-import src.threads.PianoTh;
+import src.instruments.*;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JSlider;
+import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

@@ -5,12 +5,7 @@ import src.constants.MusicGeneratorConst;
 import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Synthesizer;
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.DataLine;
-import javax.sound.sampled.FloatControl;
-import javax.sound.sampled.SourceDataLine;
+import javax.sound.sampled.*;
 import java.io.File;
 public class Snare {
     public static int volume = 70;
@@ -34,15 +29,15 @@ public class Snare {
 
     public void play(File file, int tempo) {
 
-        try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+        try (AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file)) {
+
             AudioFormat formatIn = audioInputStream.getFormat();
-            AudioFormat format = new AudioFormat((float) (formatIn.getSampleRate()*1.0), formatIn.getSampleSizeInBits(), formatIn.getChannels(), true, formatIn.isBigEndian());
+            AudioFormat format = new AudioFormat((float) (formatIn.getSampleRate() * 1.0), formatIn.getSampleSizeInBits(), formatIn.getChannels(), true, formatIn.isBigEndian());
             //a = a + 0.01;
             byte[] data = new byte[1024];
             DataLine.Info dinfo = new DataLine.Info(SourceDataLine.class, format);
-            SourceDataLine line = (SourceDataLine)AudioSystem.getLine(dinfo);
-            if(line!=null) {
+            SourceDataLine line = (SourceDataLine) AudioSystem.getLine(dinfo);
+            if (line != null) {
                 line.open(format);
                 line.start();
                 while(true) {
@@ -53,6 +48,7 @@ public class Snare {
                     volumeControl.setValue(20.0f * (float) Math.log10(volume / 100.0));
 
                     line.write(data, 0, k);
+
                 }
                 Thread.sleep(tempo);
                 line.stop();
