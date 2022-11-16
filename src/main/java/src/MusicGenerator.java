@@ -32,7 +32,11 @@ public class MusicGenerator {
         pool.submit(new HatsTh());
         pool.submit(new HatsTh());
         pool.submit(new ForteTh());
+        pool.submit(new ForteTh());
+        pool.submit(new ForteTh());
         pool.submit(new ClapTh());
+        pool.submit(new LeadTh());
+        pool.submit(new LeadTh());
         pool.submit(new LeadTh());
 
         pool.submit(new PianoPTh());
@@ -40,23 +44,14 @@ public class MusicGenerator {
         pool.submit(new PianoPTh());
         Thread.sleep(100 + (int) (Math.random() * 5000));
         pool.submit(new PianoPTh());
-        Thread.sleep(100 + (int) (Math.random() * 5000));
-        pool.submit(new PianoPTh());
-        Thread.sleep(100 + (int) (Math.random() * 5000));
-        pool.submit(new PianoPTh());
-        Thread.sleep(100 + (int) (Math.random() * 5000));
-        pool.submit(new PianoPTh());
-        Thread.sleep(100 + (int) (Math.random() * 5000));
-        pool.submit(new PianoPTh());
-        Thread.sleep(100 + (int) (Math.random() * 5000));
-        pool.submit(new PianoPTh());
-        Thread.sleep(100 + (int) (Math.random() * 5000));
         pool.submit(new PianoPTh());
         Thread.sleep(100 + (int) (Math.random() * 5000));
 
         pool.submit(new PianoTh());
 
         pool.submit(new PianoPTh());
+        pool.submit(new TomTh());
+        pool.submit(new TomTh());
         pool.submit(new TomTh());
         pool.submit(new TomTh());
 
