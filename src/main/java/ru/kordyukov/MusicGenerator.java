@@ -18,7 +18,7 @@ import java.util.concurrent.Executors;
 
 public class MusicGenerator {
     public static void main(String[] args) throws InterruptedException {
-        new NewFrame("Генератор музыки 2022, версия 1.0 beta by Kordyukov Denis(Russian, Kherson)", 10, 10);
+        new NewFrame("MusicGenerator 2022, version 1.0 beta by Kordyukov Denis(Russian, Kherson)", 10, 10);
         ExecutorService pool;
         pool = Executors.newFixedThreadPool(100);
         new KickTh().start();

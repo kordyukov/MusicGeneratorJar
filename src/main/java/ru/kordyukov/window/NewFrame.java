@@ -25,7 +25,7 @@ public class NewFrame implements ActionListener {
         lbl.setBounds(10, 10, 250, 250);
         lbl1.setBounds(713, 200, 250, 20);
 
-        JButton btn = new JButton("Закрыть");
+        JButton btn = new JButton("Close");
         final JSlider scrb1 = new JSlider(1, 0, 100, 60);
         scrb1.setMajorTickSpacing(20);
         scrb1.setMinorTickSpacing(5);
