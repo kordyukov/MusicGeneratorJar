@@ -1,10 +1,13 @@
 package ru.kordyukov.threads;
 
+import lombok.SneakyThrows;
+import org.springframework.core.io.ClassPathResource;
 import ru.kordyukov.Musician;
 import ru.kordyukov.instruments.Piano;
 import ru.kordyukov.instruments.Trigers.Trigers;
 
 import java.io.File;
+import java.io.IOException;
 
 public class LeadTh implements Runnable {
 
@@ -12,7 +15,11 @@ public class LeadTh implements Runnable {
     public void run() {
         File file;
 
-        file = new File("lead.wav");
+        try {
+            file = new ClassPathResource("/lead.wav").getFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         Musician musician = new Trigers();
         final int[] temp = {0};
         Piano piano = new Piano();

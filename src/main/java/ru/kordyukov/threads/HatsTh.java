@@ -1,10 +1,13 @@
 package ru.kordyukov.threads;
 
+import lombok.SneakyThrows;
+import org.springframework.core.io.ClassPathResource;
 import ru.kordyukov.FortePiano;
 import ru.kordyukov.Musician;
 import ru.kordyukov.instruments.Trigers.Trigers;
 
 import java.io.File;
+import java.io.IOException;
 
 public class HatsTh implements Runnable {
 
@@ -12,7 +15,11 @@ public class HatsTh implements Runnable {
     public void run() {
         File file;
 
-        file = new File("hats.wav");
+        try {
+            file = new ClassPathResource("/hats.wav").getFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         FortePiano hats = new FortePiano();
         Musician musician = new Trigers();

@@ -1,10 +1,13 @@
 package ru.kordyukov.threads;
 
+import lombok.SneakyThrows;
+import org.springframework.core.io.ClassPathResource;
 import ru.kordyukov.Musician;
 import ru.kordyukov.instruments.Trigers.Trigers;
 import ru.kordyukov.instruments.Snare;
 
 import java.io.File;
+import java.io.IOException;
 
 public class ClapTh implements Runnable {
 
@@ -14,7 +17,11 @@ public class ClapTh implements Runnable {
         Snare snare = new Snare();
         File file;
 
-        file = new File("clap.wav");
+        try {
+            file = new ClassPathResource("/clap.wav").getFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         byte[] data = new byte[1024];
 
         while (true) {

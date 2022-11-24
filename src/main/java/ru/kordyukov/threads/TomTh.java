@@ -1,10 +1,13 @@
 package ru.kordyukov.threads;
 
+import lombok.SneakyThrows;
+import org.springframework.core.io.ClassPathResource;
 import ru.kordyukov.Musician;
 import ru.kordyukov.instruments.Bass;
 import ru.kordyukov.instruments.Trigers.Trigers;
 
 import java.io.File;
+import java.io.IOException;
 
 public class TomTh implements Runnable {
 
@@ -13,7 +16,12 @@ public class TomTh implements Runnable {
         Musician musician = new Trigers();
         Bass bass = new Bass();
 
-        File file = new File("Tom.wav");
+        File file = null;
+        try {
+            file = new ClassPathResource("/Tom.wav").getFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         byte[] data = new byte[1024];
 
         int temp;

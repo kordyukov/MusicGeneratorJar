@@ -1,14 +1,18 @@
 package ru.kordyukov.threads;
 
+import lombok.SneakyThrows;
+import org.springframework.core.io.ClassPathResource;
 import ru.kordyukov.Musician;
 import ru.kordyukov.instruments.Bass;
 import ru.kordyukov.instruments.Kick;
 import ru.kordyukov.instruments.Trigers.Trigers;
 
 import java.io.File;
+import java.io.IOException;
 
 public class KickTh extends Thread {
     public static boolean kickPlay = false;
+
 
     @Override
     public void run() {
@@ -18,8 +22,13 @@ public class KickTh extends Thread {
 
         File file, file1;
 
-        file1 = new File("Bass.wav");
-        file = new File("Kick.wav");
+        try {
+            file1 = new ClassPathResource("/Bass.wav").getFile();
+            file = new ClassPathResource("/Kick.wav").getFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         int temp;
         float note;
 
@@ -31,7 +40,7 @@ public class KickTh extends Thread {
                 try {
                     Thread.sleep(musician.tempoTrigerKick());
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    throw new RuntimeException(e);
                 }
                 kickPlay = false;
             } else {
@@ -41,7 +50,7 @@ public class KickTh extends Thread {
                 try {
                     Thread.sleep(temp);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    throw new RuntimeException(e);
                 }
                 kickPlay = true;
             }
