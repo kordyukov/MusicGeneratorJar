@@ -15,11 +15,7 @@ public class HatsTh implements Runnable {
     public void run() {
         File file;
 
-        try {
-            file = new ClassPathResource("/hats.wav").getFile();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        file = new File("hats.wav");
 
         FortePiano hats = new FortePiano();
         Musician musician = new Trigers();

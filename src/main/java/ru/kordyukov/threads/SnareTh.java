@@ -17,11 +17,7 @@ public class SnareTh implements Runnable {
         Snare snare = new Snare();
         File file;
 
-        try {
-            file = new ClassPathResource("/Snare.wav").getFile();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        file = new File("Snare.wav");
         byte[] data = new byte[1024];
 
         int temp = 0;

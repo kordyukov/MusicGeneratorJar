@@ -20,11 +20,7 @@ public class PianoTh implements Runnable {
         final boolean[] leadPlay = {false};
         byte[] data = new byte[1024];
 
-        try {
-            file = new ClassPathResource("/pad.wav").getFile();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        file = new File("pad.wav");
 
         while (true) {
             temp[0] = musician.tempoTrigerBass();

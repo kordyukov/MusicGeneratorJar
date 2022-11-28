@@ -17,11 +17,7 @@ public class HatTh implements Runnable {
         Musician musician = new Trigers();
         File file;
 
-        try {
-            file = new ClassPathResource("/Hat.wav").getFile();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        file = new File("Hat.wav");
         byte[] data = new byte[1024];
 
         while (true) {

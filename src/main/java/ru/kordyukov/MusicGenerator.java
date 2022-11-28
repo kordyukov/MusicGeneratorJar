@@ -21,7 +21,7 @@ public class MusicGenerator {
     public static void main(String[] args) throws InterruptedException {
         new NewFrame("MusicGenerator 2022, version 1.0 beta by Kordyukov Denis(Russian, Kherson)", 10, 10);
         ExecutorService pool;
-        pool = Executors.newFixedThreadPool(100);
+        pool = Executors.newScheduledThreadPool(100);
         new KickTh().start();
         pool.submit(new BassTh());
         pool.submit(new SnareTh());
@@ -55,7 +55,7 @@ public class MusicGenerator {
         pool.submit(new TomTh());
         pool.submit(new TomTh());
         pool.submit(new TomTh());
-        pool.submit(new CleanMemory());
+        //pool.submit(new CleanMemory());
     }
 
 }

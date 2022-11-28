@@ -15,11 +15,7 @@ public class LeadTh implements Runnable {
     public void run() {
         File file;
 
-        try {
-            file = new ClassPathResource("/lead.wav").getFile();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        file = new File("lead.wav");
         Musician musician = new Trigers();
         final int[] temp = {0};
         Piano piano = new Piano();

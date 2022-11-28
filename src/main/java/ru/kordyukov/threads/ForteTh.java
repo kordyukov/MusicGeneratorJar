@@ -17,11 +17,7 @@ public class ForteTh implements Runnable {
         Musician musician = new Trigers();
 
         File file = null;
-        try {
-            file = new ClassPathResource("/forte.wav").getFile();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        file = new File("forte.wav");
         byte[] data = new byte[1024];
 
         int temp = 0;

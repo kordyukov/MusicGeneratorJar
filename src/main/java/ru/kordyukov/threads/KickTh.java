@@ -22,12 +22,8 @@ public class KickTh extends Thread {
 
         File file, file1;
 
-        try {
-            file1 = new ClassPathResource("/Bass.wav").getFile();
-            file = new ClassPathResource("/Kick.wav").getFile();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        file1 = new File("Bass.wav");
+        file = new File("Kick.wav");
 
         int temp;
         float note;

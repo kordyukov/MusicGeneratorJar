@@ -17,11 +17,7 @@ public class ClapTh implements Runnable {
         Snare snare = new Snare();
         File file;
 
-        try {
-            file = new ClassPathResource("/clap.wav").getFile();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        file = new File("clap.wav");
         byte[] data = new byte[1024];
 
         while (true) {

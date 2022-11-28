@@ -17,11 +17,7 @@ public class TomTh implements Runnable {
         Bass bass = new Bass();
 
         File file = null;
-        try {
-            file = new ClassPathResource("/Tom.wav").getFile();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        file = new File("Tom.wav");
         byte[] data = new byte[1024];
 
         int temp;
