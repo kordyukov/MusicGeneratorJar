@@ -55,7 +55,7 @@ public class MusicGenerator {
         pool.submit(new TomTh());
         pool.submit(new TomTh());
         pool.submit(new TomTh());
-        //pool.submit(new CleanMemory());
+        pool.submit(new CleanMemory());
     }
 
 }

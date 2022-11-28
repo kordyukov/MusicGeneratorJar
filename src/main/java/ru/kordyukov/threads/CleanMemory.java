@@ -8,7 +8,7 @@ public class CleanMemory implements Runnable{
         while (true) {
             try {
                 Thread.sleep(
-                        Duration.ofSeconds(3).toMillis()
+                        Duration.ofSeconds(5).toMillis()
                 );
                 System.gc();
             } catch (InterruptedException ignored) {
