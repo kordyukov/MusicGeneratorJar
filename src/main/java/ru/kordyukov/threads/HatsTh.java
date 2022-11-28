@@ -31,6 +31,7 @@ public class HatsTh implements Runnable {
             hats.play(file, temp[0], musician.noteTrigerFortePiano(), data);
             try {
                 Thread.sleep(temp[0]);
+
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

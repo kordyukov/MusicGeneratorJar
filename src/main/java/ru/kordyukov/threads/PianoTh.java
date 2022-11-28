@@ -31,6 +31,7 @@ public class PianoTh implements Runnable {
             piano.play(file, temp[0], leadPlay[0] ? musician.noteTrigerSpeedBass() : musician.noteTrigerSpeedBass() * 2, data);
             try {
                 Thread.sleep(temp[0]);
+
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

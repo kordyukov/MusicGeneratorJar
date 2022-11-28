@@ -30,6 +30,7 @@ public class SnareTh implements Runnable {
             snare.play(file, temp, data);
             try {
                 Thread.sleep(temp);
+
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

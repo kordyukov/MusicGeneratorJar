@@ -12,6 +12,7 @@ public class PianoPTh implements Runnable {
             fortePiano.PlayPiano(1300);
             try {
                 Thread.sleep(1300);
+
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

@@ -28,6 +28,7 @@ public class HatTh implements Runnable {
             hat.play(file, musician.tempoTrigerHat(), data);
             try {
                 Thread.sleep(musician.tempoTrigerHat());
+
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

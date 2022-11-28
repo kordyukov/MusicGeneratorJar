@@ -50,6 +50,8 @@ public class Piano {
                 Thread.sleep(tempo);
                 line.stop();
                 line.close();
+
+                audioInputStream.close();
             }
         }
         catch(Exception ex) { ex.printStackTrace(); }

@@ -26,6 +26,7 @@ public class SocketRecTh implements Runnable {
         if (!file.exists()) {
             try {
                 file.createNewFile();
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

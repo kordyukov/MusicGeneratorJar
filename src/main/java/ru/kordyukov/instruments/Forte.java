@@ -33,9 +33,8 @@ public class Forte {
                 Thread.sleep(tempo);
                 line.stop();
                 line.close();
-                // println line1.toString()
 
-
+                audioInputStream.close();
             }
 
         } catch (Exception ex) {

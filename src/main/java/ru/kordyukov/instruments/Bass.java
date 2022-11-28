@@ -37,7 +37,7 @@ public class Bass {
                 line.stop();
                 line.close();
 
-
+                audioInputStream.close();
             }
 
         } catch (Exception ex) {

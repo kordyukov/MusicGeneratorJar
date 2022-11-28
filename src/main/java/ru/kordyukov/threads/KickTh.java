@@ -49,6 +49,7 @@ public class KickTh extends Thread {
                 bass.play(file1, temp, note, data);
                 try {
                     Thread.sleep(temp);
+
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }

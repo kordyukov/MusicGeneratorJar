@@ -31,6 +31,7 @@ public class ForteTh implements Runnable {
             forte.play(file, temp, musician.noteTrigerSpeedForte(), data);
             try {
                 Thread.sleep(temp);
+
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

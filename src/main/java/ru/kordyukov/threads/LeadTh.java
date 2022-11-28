@@ -30,6 +30,7 @@ public class LeadTh implements Runnable {
             piano.play(file, temp[0], musician.noteTrigerSpeedBass(), data);
             try {
                 Thread.sleep(temp[0] * 2L);
+
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

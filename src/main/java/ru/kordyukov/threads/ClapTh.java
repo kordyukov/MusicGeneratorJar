@@ -28,6 +28,7 @@ public class ClapTh implements Runnable {
             snare.play(file, musician.tempoTrigerSnare(), data);
             try {
                 Thread.sleep(musician.tempoTrigerSnare());
+
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

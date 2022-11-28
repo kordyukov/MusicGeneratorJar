@@ -54,6 +54,8 @@ public class Hat {
                 Thread.sleep(tempo);
                 line.stop();
                 line.close();
+
+                audioInputStream.close();
             }
         }
         catch(Exception ex) { ex.printStackTrace(); }
