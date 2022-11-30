@@ -23,7 +23,6 @@ public class StaticFileHandler implements HttpHandler {
     public void handle(HttpExchange ex) {
         try {
             IOException e = null;
-            System.out.println("ex.toString()" + ex.toString());
             URI uri = ex.getRequestURI();
 
             String name = new File(uri.getPath()).getName();
@@ -32,12 +31,10 @@ public class StaticFileHandler implements HttpHandler {
             Headers h = ex.getResponseHeaders();
             // Could be more clever about the content type based on the filename here.
             h.add("Content-Type", "audio/wav");
-            System.out.println("handle");
             OutputStream out = ex.getResponseBody();
 
             if (path.exists()) {
                 ex.sendResponseHeaders(200, path.length());
-                System.out.println("Files.readAllBytes(path.toPath())");
                 out.write(Files.readAllBytes(path.toPath()));
             } else {
                 System.err.println("File not found: " + path.getAbsolutePath());
@@ -45,12 +42,9 @@ public class StaticFileHandler implements HttpHandler {
                 ex.sendResponseHeaders(404, 0);
                 out.write("404 File not found.".getBytes());
             }
-            System.out.println("in try" + e);
             out.close();
         } catch (IOException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
-
-
     }
 }

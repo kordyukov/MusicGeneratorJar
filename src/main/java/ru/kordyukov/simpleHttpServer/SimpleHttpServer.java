@@ -30,7 +30,6 @@ public class SimpleHttpServer {
             server.createContext("/", new StaticFileHandler(MusicGeneratorConst.baseDirTomcat));
 
             server.start();
-            System.out.println(socketAddress);
 
         } catch (IOException e) {
             e.printStackTrace();
