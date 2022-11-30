@@ -103,6 +103,21 @@ public class NewFrame implements ActionListener {
                 Snare.volume = source.getValue();
             }
         });
+        final JToggleButton toggleBtn = new JToggleButton("Piano off");
+        toggleBtn.setBounds(250, 243, 110, 25);
+        MyFrame.add(toggleBtn);
+
+        toggleBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JToggleButton tBtn = (JToggleButton)e.getSource();
+                if (tBtn.isSelected()) {
+                    FortePiano.volume = 0;
+                } else {
+                    FortePiano.volume = scrb1.getValue();
+                }
+
+            }
+        });
 
     }
 

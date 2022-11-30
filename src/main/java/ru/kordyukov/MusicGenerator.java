@@ -26,7 +26,6 @@ public class MusicGenerator {
         pool.submit(new BassTh());
         pool.submit(new SnareTh());
 
-        pool.submit(new PianoPTh());
         pool.submit(new HatTh());
         pool.submit(new HatsTh());
         pool.submit(new HatsTh());
@@ -48,10 +47,10 @@ public class MusicGenerator {
         pool.submit(new PianoPTh());
         Thread.sleep(100 + (int) (Math.random() * 5000));
         pool.submit(new PianoPTh());
+        pool.submit(new PianoPTh());
 
         pool.submit(new PianoTh());
 
-        pool.submit(new PianoPTh());
         pool.submit(new TomTh());
         pool.submit(new TomTh());
         pool.submit(new TomTh());
