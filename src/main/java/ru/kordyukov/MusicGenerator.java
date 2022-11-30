@@ -10,6 +10,7 @@ import ru.kordyukov.threads.KickTh;
 import ru.kordyukov.threads.LeadTh;
 import ru.kordyukov.threads.PianoPTh;
 import ru.kordyukov.threads.PianoTh;
+import ru.kordyukov.threads.ServerStartTh;
 import ru.kordyukov.threads.SnareTh;
 import ru.kordyukov.threads.TomTh;
 import ru.kordyukov.window.NewFrame;
@@ -17,12 +18,18 @@ import ru.kordyukov.window.NewFrame;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import static ru.kordyukov.simpleHttpServer.SimpleHttpServer.socketAddress;
+
 public class MusicGenerator {
+
     public static void main(String[] args) throws InterruptedException {
-        new NewFrame("MusicGenerator 2022, version 1.0 beta by Kordyukov Denis(Russian, Kherson)", 10, 10);
         ExecutorService pool;
+
         pool = Executors.newScheduledThreadPool(100);
+        pool.submit(new ServerStartTh());
+
         new KickTh().start();
+
         pool.submit(new BassTh());
         pool.submit(new SnareTh());
 
@@ -56,6 +63,10 @@ public class MusicGenerator {
         pool.submit(new TomTh());
         pool.submit(new TomTh());
         pool.submit(new CleanMemory());
+
+        new NewFrame("MusicGenerator 2022, version 1.0 beta by Kordyukov Denis(Russian, Kherson), " +
+                "music translation on: " + socketAddress, 10, 10);
+
     }
 
 }

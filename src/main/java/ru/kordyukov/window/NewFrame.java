@@ -14,8 +14,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class NewFrame implements ActionListener {
+    public static JFrame MyFrame;
     public NewFrame(String text, int x, int y) {
-        JFrame MyFrame = new JFrame(text);
+        MyFrame = new JFrame(text);
         MyFrame.setBounds(x, y, 950, 320);
         MyFrame.setDefaultCloseOperation(3);
         MyFrame.setResizable(false);
