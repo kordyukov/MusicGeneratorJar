@@ -4,7 +4,7 @@ import javax.sound.sampled.*;
 import java.io.File;
 
 public class Bass {
-    public static int volume = 70;
+    public static int volume = 80;
     public void play(File file, int tempo, float note, byte[] data) {
 
         try (AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file)) {

@@ -47,6 +47,7 @@ public class MusicGenerator {
         pool.submit(new PianoPTh());
         pool.submit(new PianoPTh());
         Thread.sleep(100 + (int) (Math.random() * 5000));
+        pool.submit(new PianoPTh());
 
         pool.submit(new PianoTh());
 

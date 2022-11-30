@@ -8,7 +8,7 @@ import javax.sound.midi.Synthesizer;
 import javax.sound.sampled.*;
 import java.io.File;
 public class Snare {
-    public static int volume = 70;
+    public static int volume = 80;
     private int note = 38;
     private int temp;
 

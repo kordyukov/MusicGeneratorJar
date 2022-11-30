@@ -8,7 +8,7 @@ import javax.sound.midi.Synthesizer;
 import javax.sound.sampled.*;
 import java.io.File;
 public class Kick {
-    public static int volume = 70;
+    public static int volume = 90;
     private int note = 36;
 
     public void playKick(int temp, int volume) {
