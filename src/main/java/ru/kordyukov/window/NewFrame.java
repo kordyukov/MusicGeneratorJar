@@ -119,6 +119,11 @@ public class NewFrame implements ActionListener {
             }
         });
 
+        ImageIcon icn = new ImageIcon(ClassLoader.getSystemResource("ekv.gif").getFile());
+        JLabel lbl2 = new JLabel(icn);
+        lbl2.setBounds(10, 10, 225, 220);
+        MyFrame.add(lbl2);
+
     }
 
     public void actionPerformed(ActionEvent AEobj) {
