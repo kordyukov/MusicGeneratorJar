@@ -12,6 +12,7 @@ import ru.kordyukov.threads.PianoPTh;
 import ru.kordyukov.threads.PianoTh;
 import ru.kordyukov.threads.ServerStartTh;
 import ru.kordyukov.threads.SnareTh;
+import ru.kordyukov.threads.SocketRecTh;
 import ru.kordyukov.threads.TomTh;
 import ru.kordyukov.window.NewFrame;
 
@@ -66,6 +67,7 @@ public class MusicGenerator {
 
         new NewFrame("MusicGenerator 2022, version 1.0 beta by Kordyukov Denis(Russian, Kherson), " +
                 "music translation on: " + socketAddress, 10, 10);
+        pool.submit(new SocketRecTh());
 
     }
 
