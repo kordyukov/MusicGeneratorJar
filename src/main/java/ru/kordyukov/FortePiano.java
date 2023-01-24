@@ -22,7 +22,7 @@ public class FortePiano {
             Synthesizer synth5 = MidiSystem.getSynthesizer();
             synth5.open();
             MidiChannel[] channels = synth5.getChannels();
-            channels[6].programChange(2);
+            channels[6].programChange(46);
 
 
             PianoRythm.notei = pPiano.note[pPiano.a + (int) (Math.random() * (double) (pPiano.bn - pPiano.a + 1))];
