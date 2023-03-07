@@ -9,7 +9,6 @@ public class MusicGeneratorConst {
     public static final int CHANNEL_SNARE = 9;
     public static final int HAT = 42;
     public static final int CHANNEL_HAT = 9;
-    public static final String pathTomcat = "webapps";
-    public static final String baseDirTomcat = "MusicGenerator.wav";
+    public static final String baseDir = "MusicGenerator.wav";
 
 }

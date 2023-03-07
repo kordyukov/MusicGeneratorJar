@@ -22,7 +22,7 @@ public class SocketRecTh implements Runnable {
         TargetDataLine mike;
         boolean isBaseDirIdea;
 
-        file = new File(MusicGeneratorConst.baseDirTomcat);
+        file = new File(MusicGeneratorConst.baseDir);
         if (!file.exists()) {
             try {
                 file.createNewFile();
