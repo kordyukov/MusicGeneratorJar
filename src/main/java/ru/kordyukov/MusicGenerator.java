@@ -8,8 +8,6 @@ import ru.kordyukov.threads.HatTh;
 import ru.kordyukov.threads.HatsTh;
 import ru.kordyukov.threads.KickTh;
 import ru.kordyukov.threads.LeadTh;
-import ru.kordyukov.threads.PianoPTh;
-import ru.kordyukov.threads.PianoTh;
 import ru.kordyukov.threads.ServerStartTh;
 import ru.kordyukov.threads.SnareTh;
 import ru.kordyukov.threads.SocketRecTh;
@@ -46,18 +44,6 @@ public class MusicGenerator {
         pool.submit(new LeadTh());
         pool.submit(new LeadTh());
         pool.submit(new LeadTh());
-
-        pool.submit(new PianoPTh());
-        Thread.sleep(100 + (int) (Math.random() * 5000));
-        pool.submit(new PianoPTh());
-        Thread.sleep(100 + (int) (Math.random() * 5000));
-        pool.submit(new PianoPTh());
-        pool.submit(new PianoPTh());
-        Thread.sleep(100 + (int) (Math.random() * 5000));
-        pool.submit(new PianoPTh());
-        pool.submit(new PianoPTh());
-
-        pool.submit(new PianoTh());
 
         pool.submit(new TomTh());
         pool.submit(new TomTh());
