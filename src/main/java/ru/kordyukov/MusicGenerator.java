@@ -51,6 +51,8 @@ public class MusicGenerator {
         pool.submit(new TomTh());
         pool.submit(new CleanMemory());
 
+        Thread.sleep(3000);
+
         new NewFrame("MusicGenerator 2022, version 1.0 beta by Kordyukov Denis(Russian, Kherson), " +
                 "music translation on: " + socketAddress, 10, 10);
         pool.submit(new SocketRecTh());
